@@ -1,6 +1,5 @@
 const MarkDown = require('../model/markdown.model')
 const MdDetailed = require('../model/mdDetailed.model')
-
 class MdService {
   //! 创建MarkDown文章数据
   async createMarkDown(markdown) {

@@ -1,3 +1,7 @@
+const MarkdownIt = require('markdown-it')
+const md = new MarkdownIt()
+const { readFileSync } = require('fs')
+const { resolve } = require('path')
 const {
   createMarkDownError,
   modifyMdError,
@@ -87,6 +91,11 @@ class MdController {
   async findAllDet(ctx) {
     const { md_id } = ctx.request.query
     const res = await findAllDet(md_id)
+    const data = readFileSync(
+      resolve(__dirname, `../assets/uploads/${res.content_md}`),
+      'utf-8'
+    )
+    res.content_md = data
     ctx.body = {
       code: 0,
       message: '获取详细文件成功',
