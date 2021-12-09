@@ -155,4 +155,22 @@ module.exports = {
     message: '获取图标数据失败',
     result: '',
   },
+  //! 关于我的文件数据格式错误
+  validatorMeError: {
+    code: '10030',
+    message: '关于我的文件数据格式错误',
+    result: '',
+  },
+  //! 上传关于我的数据失败错误
+  createAboutMeError: {
+    code: '10031',
+    message: '上传关于我的数据失败',
+    result: '',
+  },
+  //! 修改关于我的数据失败错误
+  modifyAboutMeError: {
+    code: '10032',
+    message: '修改关于我的数据失败错误',
+    result: '',
+  },
 }

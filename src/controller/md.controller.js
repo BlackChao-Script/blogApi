@@ -1,5 +1,3 @@
-const MarkdownIt = require('markdown-it')
-const md = new MarkdownIt()
 const { readFileSync } = require('fs')
 const { resolve } = require('path')
 const {
@@ -65,7 +63,7 @@ class MdController {
   }
   //! 获取文件
   async findAll(ctx) {
-    const { paegNum = 1, pageSize = 10 } = ctx.request.query
+    const { paegNum = 1, pageSize = 6 } = ctx.request.query
     const res = await findMd(paegNum, pageSize)
     ctx.body = {
       code: 0,
