@@ -4,6 +4,7 @@ const {
   register,
   login,
   changePassword,
+  getuserData,
 } = require('../controller/user.controller')
 //! 引入中间件
 const {
@@ -20,5 +21,7 @@ user.post('/register', userValidator, verifyUser, crpytPassword, register)
 user.post('/login', userValidator, verifyLogin, login)
 //! 修改密码接口
 user.patch('/modify', auth, crpytPassword, changePassword)
+//! 获取用户信息
+user.get('/', getuserData)
 
 module.exports = user

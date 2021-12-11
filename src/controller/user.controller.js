@@ -3,6 +3,7 @@ const {
   createUser,
   getUerInfo,
   updateById,
+  getuserDatas,
 } = require('../service/user.service')
 const { JWT_SECRET } = require('../constant/data')
 const { updatePassowrdError } = require('../constant/err.type')
@@ -59,6 +60,15 @@ class UserController {
     } catch (err) {
       console.error('修改密码失败', err)
       return ctx.app.emit('error', updatePassowrdError, ctx)
+    }
+  }
+  //! 获取用户信息
+  async getuserData(ctx) {
+    const res = await getuserDatas(ctx.request.query.user_name)
+    ctx.body = {
+      code: 0,
+      message: '获取成功',
+      result: res,
     }
   }
 }

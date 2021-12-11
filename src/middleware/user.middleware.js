@@ -16,6 +16,7 @@ const {
 //! 处理用户名或密码为空中间件
 const userValidator = async (ctx, next) => {
   const { user_name, password } = ctx.request.body
+  console.log(ctx.request.body)
   if (!user_name || !password) {
     console.error('用户名或密码为空', ctx.request.body)
     ctx.app.emit('error', userFormateError, ctx)

@@ -8,6 +8,10 @@ const MYSQL_PWD = '123456'
 const MYSQL_DB = 'blog'
 //! toktn令牌
 const JWT_SECRET = 'blg'
+//! 随机数
+const Math_Round = () => {
+  return Math.round(Math.random() * 6) + '.png'
+}
 
 module.exports = {
   SERVICE_PORT,
@@ -17,4 +21,5 @@ module.exports = {
   MYSQL_PWD,
   MYSQL_DB,
   JWT_SECRET,
+  Math_Round,
 }

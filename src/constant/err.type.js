@@ -173,4 +173,10 @@ module.exports = {
     message: '修改关于我的数据失败错误',
     result: '',
   },
+  //! 评论失败错误
+  createLeaveWordError: {
+    code: '10040',
+    message: '评论失败',
+    result: '',
+  },
 }

@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize')
 const seq = require('../db/seq')
+const { Math_Round } = require('../constant/data')
 //! 创建表名为 blg_user 的表并赋值给 User
 const User = seq.define(
   'blg_user',
@@ -27,6 +28,11 @@ const User = seq.define(
       defaultValue: 0,
       comment: '是否为管理员,0:不是管理员(默认);1:为管理员',
     },
+    user_img: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: Math_Round(),
+    },
   },
   {
     // 强制表名等于模型名
@@ -36,6 +42,6 @@ const User = seq.define(
   }
 )
 // 模型同步 如果表不存在,则创建该表(如果已经存在,则不执行任何操作)， 加上{ force: true } ：如果表已经存在，则将其首先删除
-// User.sync({ force: true })
+// User.sync({ alter: true })
 
 module.exports = User
