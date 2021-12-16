@@ -27,6 +27,6 @@ const leaveWord = seq.define(
   }
 )
 
-leaveWord.sync({ alter: true })
+// leaveWord.sync({ alter: true })
 
 module.exports = leaveWord

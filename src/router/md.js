@@ -8,6 +8,7 @@ const {
   findAll,
   createDet,
   findAllDet,
+  getAllListDet
 } = require('../controller/md.controller')
 const { validator, validatorDet } = require('../middleware/md.middleware')
 
@@ -23,5 +24,7 @@ md.get('/', findAll)
 md.post('/mdDet', auth, hadAdminPermission, validatorDet, createDet)
 //! 获取md文件详细接口
 md.get('/mdDet', findAllDet)
+//! 获取md文件详细列表接口
+md.get('/mdDetList',getAllListDet)
 
 module.exports = md

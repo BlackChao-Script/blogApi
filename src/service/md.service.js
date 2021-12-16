@@ -41,6 +41,21 @@ class MdService {
     })
     return res ? res.dataValues : null
   }
+  //! 查找md文件详细列表数据
+  async getAllListDetData(paegNum, pageSize) {
+    const count = await MdDetailed.count()
+    const offset = (paegNum - 1) * pageSize
+    const rows = await MdDetailed.findAll({
+      offset: offset,
+      limit: pageSize * 1,
+    })
+    return {
+      paegNum,
+      pageSize,
+      total: count,
+      list: rows,
+    }
+  }
 }
 
 module.exports = new MdService()

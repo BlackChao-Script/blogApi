@@ -13,6 +13,7 @@ const {
   findMd,
   createMarkDownDet,
   findAllDet,
+  getAllListDetData,
 } = require('../service/md.service')
 class MdController {
   //! 上传文件到数据库
@@ -97,6 +98,16 @@ class MdController {
     ctx.body = {
       code: 0,
       message: '获取详细文件成功',
+      result: res,
+    }
+  }
+  //! 获取详细文件列表数据文件
+  async getAllListDet(ctx) {
+    const { paegNum = 1, pageSize = 6 } = ctx.request.query
+    const res = await getAllListDetData(paegNum, pageSize)
+    ctx.body = {
+      code: 0,
+      message: '获取文件成功',
       result: res,
     }
   }
