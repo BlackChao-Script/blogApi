@@ -8,6 +8,8 @@ const {
 const {
   create,
   getCarousel,
+  modifyCarousel,
+  removeCarousel,
   createIntroduction,
   getIntroduction,
   getIcon,
@@ -16,6 +18,16 @@ const {
 home.post('/carousel', auth, hadAdminPermission, validatorCarousel, create)
 //! 获取轮播图接口
 home.get('/carousel', getCarousel)
+//! 修改轮播图接口
+home.put(
+  '/carousel/:id',
+  auth,
+  hadAdminPermission,
+  validatorCarousel,
+  modifyCarousel
+)
+//! 删除轮播图接口
+home.delete('/carousel/:id', auth, hadAdminPermission, removeCarousel)
 //! 上传简介数据接口
 home.post(
   '/introduction',

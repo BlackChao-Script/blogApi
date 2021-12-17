@@ -15,6 +15,16 @@ class HomeService {
       list: res,
     }
   }
+  //! 根据id修改轮播图数据
+  async modifyCarouselData(id, carousel) {
+    const res = await Carousel.update(carousel, { where: { id } })
+    return res[0] > 0 ? true : false
+  }
+  //! 根据id删除轮播图数据
+  async removeCarouselData(id) {
+    const res = await Carousel.destroy({ where: { id } })
+    return res[0] > 0 ? true : false
+  }
   //! 上传简介到数据表
   async createIntroductions(introductions) {
     const res = await Introduction.create(introductions)

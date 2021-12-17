@@ -4,6 +4,9 @@ const {
   createIntroductionError,
   getIntroductionError,
   getIconError,
+  invalidCarouselID,
+  modifyCarousel,
+  removeCarouselError,
 } = require('../constant/err.type')
 const {
   createCarousel,
@@ -11,6 +14,8 @@ const {
   createIntroductions,
   getIntroductionData,
   getIconData,
+  removeCarouselData,
+  modifyCarouselData,
 } = require('../service/home.service')
 class HomeController {
   //! 上传轮播图文件到数据库
@@ -39,6 +44,37 @@ class HomeController {
     } catch (err) {
       console.error('获取轮播图数据失败', err)
       ctx.app.emit('error', getCarouselError, ctx)
+    }
+  }
+  //! 修改轮播图数据
+  async modifyCarousel(ctx) {
+    try {
+      const res = await modifyCarouselData(ctx.params.id, ctx.request.body)
+      if (res) {
+        ctx.body = {
+          code: 0,
+          message: '修改轮播图数据成功',
+          result: '',
+        }
+      } else {
+        return ctx.app.emit('error', invalidCarouselID, ctx)
+      }
+    } catch (err) {
+      console.error('修改轮播图文件失败', err)
+      return ctx.app.emit('error', modifyCarousel, ctx)
+    }
+  }
+  //! 删除轮播图数据
+  async removeCarousel(ctx) {
+    try {
+      await removeCarouselData(ctx.params.id)
+      ctx.body = {
+        code: 0,
+        message: '删除轮播图数据成功',
+      }
+    } catch (err) {
+      console.error('删除轮播图数据失败', err)
+      ctx.app.emit('errpr', removeCarouselError, ctx)
     }
   }
   //! 上传简介数据到数据库

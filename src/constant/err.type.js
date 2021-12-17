@@ -131,27 +131,44 @@ module.exports = {
     message: '获取轮播图数据失败',
     result: '',
   },
+  //! 轮播图不存在错误
+  invalidCarouselID: {
+    code: '10023',
+    message: '轮播图不存在',
+    result: '',
+  },
+  //! 修改轮播图失败错误
+  modifyCarousel: {
+    code: '10024',
+    message: '修改轮播图失败',
+    result: '',
+  },
+  //! 删除轮播图失败错误
+  removeCarouselError: {
+    code: '10025',
+    message: '删除轮播图失败错误',
+  },
   //! 简介格式错误
   validatorIntroductionError: {
-    code: '10023',
+    code: '10026',
     message: '简介格式错误',
     result: '',
   },
   //! 上传简介失败错误
   createIntroductionError: {
-    code: '10024',
+    code: '10027',
     message: '上传简介失败',
     result: '',
   },
   //! 获取简介数据失败错误
   getIntroductionError: {
-    code: '10025',
+    code: '10028',
     message: '获取简介数据失败',
     result: '',
   },
   //! 获取图标数据失败错误
   getIconError: {
-    code: '10026',
+    code: '10029',
     message: '获取图标数据失败',
     result: '',
   },
