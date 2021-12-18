@@ -134,7 +134,7 @@ module.exports = {
   //! 轮播图不存在错误
   invalidCarouselID: {
     code: '10023',
-    message: '轮播图不存在',
+    message: '修改的轮播图不存在',
     result: '',
   },
   //! 修改轮播图失败错误
@@ -159,6 +159,16 @@ module.exports = {
     code: '10027',
     message: '上传简介失败',
     result: '',
+  },
+  //! 修改的简介数据不存在错误
+  invalidIntroductionID: {
+    code: '100271',
+    message: '修改的简介不存在',
+  },
+  //! 修改简介失败
+  modifyIntroductionError: {
+    code: '100272',
+    message: '修改简介失败',
   },
   //! 获取简介数据失败错误
   getIntroductionError: {

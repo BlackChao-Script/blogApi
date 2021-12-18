@@ -6,6 +6,8 @@ const {
   getIconError,
   invalidCarouselID,
   modifyCarousel,
+  invalidIntroductionID,
+  modifyIntroductionError,
   removeCarouselError,
 } = require('../constant/err.type')
 const {
@@ -14,6 +16,7 @@ const {
   createIntroductions,
   getIntroductionData,
   getIconData,
+  modifyIntroductionData,
   removeCarouselData,
   modifyCarouselData,
 } = require('../service/home.service')
@@ -103,6 +106,24 @@ class HomeController {
     } catch (err) {
       console.error('获取简介数据失败', err)
       ctx.app.emit('error', getIntroductionError, ctx)
+    }
+  }
+  //! 修改简介数据
+  async modifyIntroduction(ctx) {
+    try {
+      const res = await modifyIntroductionData(ctx.params.id, ctx.request.body)
+      if (res) {
+        ctx.body = {
+          code: 0,
+          message: '修改简介数据成功',
+          result: '',
+        }
+      } else {
+        return ctx.app.emit('error', invalidIntroductionID, ctx)
+      }
+    } catch (err) {
+      console.error('修改简介失败', err)
+      return ctx.app.emit('error', modifyIntroductionError, ctx)
     }
   }
   //! 获取图标数据

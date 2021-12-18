@@ -12,6 +12,7 @@ const {
   removeCarousel,
   createIntroduction,
   getIntroduction,
+  modifyIntroduction,
   getIcon,
 } = require('../controller/home.controller')
 //! 上传轮播图接口
@@ -38,6 +39,9 @@ home.post(
 )
 //! 获取简介数据接口
 home.get('/introduction', getIntroduction)
+//! 修改简介数据接口
+home.put('/introduction/:id', auth, hadAdminPermission, modifyIntroduction)
+//! 获取个人地址图标
 home.get('/icon', getIcon)
 
 module.exports = home

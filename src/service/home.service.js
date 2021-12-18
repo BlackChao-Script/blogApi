@@ -37,6 +37,11 @@ class HomeService {
       list: res,
     }
   }
+  //! 修改简介数据
+  async modifyIntroductionData(id, introduction) {
+    const res = await Introduction.update(introduction, { where: { id } })
+    return res[0] > 0 ? true : false
+  }
   //! 查找图标数据
   async getIconData() {
     const res = await Icon.findAll()
