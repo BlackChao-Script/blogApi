@@ -96,7 +96,7 @@ const hadAdminPermission = async (ctx, next) => {
   const { is_admin } = ctx.state.user
   if (!is_admin) {
     console.error('该用户没有管理员权限', ctx.state.user)
-    ctx.app.emit('error', hadAdminPermissionError, ctx)
+    return ctx.app.emit('error', hadAdminPermissionError, ctx)
   }
   await next()
 }

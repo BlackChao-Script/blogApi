@@ -14,6 +14,7 @@ const {
   getIntroduction,
   modifyIntroduction,
   getIcon,
+  modifyIcon,
 } = require('../controller/home.controller')
 //! 上传轮播图接口
 home.post('/carousel', auth, hadAdminPermission, validatorCarousel, create)
@@ -43,5 +44,7 @@ home.get('/introduction', getIntroduction)
 home.put('/introduction/:id', auth, hadAdminPermission, modifyIntroduction)
 //! 获取个人地址图标
 home.get('/icon', getIcon)
+//! 修改个人地址图标
+home.put('/icon/:id', auth, hadAdminPermission, modifyIcon)
 
 module.exports = home

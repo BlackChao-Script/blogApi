@@ -9,6 +9,8 @@ const {
   invalidIntroductionID,
   modifyIntroductionError,
   removeCarouselError,
+  invalidIconID,
+  modifyIconError,
 } = require('../constant/err.type')
 const {
   createCarousel,
@@ -19,6 +21,7 @@ const {
   modifyIntroductionData,
   removeCarouselData,
   modifyCarouselData,
+  modifyIconData,
 } = require('../service/home.service')
 class HomeController {
   //! 上传轮播图文件到数据库
@@ -138,6 +141,24 @@ class HomeController {
     } catch (err) {
       console.error('获取图标数据失败', err)
       ctx.app.emit('error', getIconError, ctx)
+    }
+  }
+  //! 修改图标数据
+  async modifyIcon(ctx) {
+    try {
+      const res = await modifyIconData(ctx.params.id, ctx.request.body)
+      if (res) {
+        ctx.body = {
+          code: 0,
+          message: '修改图标数据成功',
+          result: '',
+        }
+      } else {
+        return ctx.app.emit('error', invalidIconID, ctx)
+      }
+    } catch (err) {
+      console.error('修改图标数据失败', err)
+      return ctx.app.emit('error', modifyIconError, ctx)
     }
   }
 }

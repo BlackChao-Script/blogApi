@@ -107,6 +107,30 @@ module.exports = {
     message: '获取分类数据文件失败',
     result: '',
   },
+  //! 添加分类数据失败错误
+  createSortError: {
+    code: '100181',
+    message: '添加分类数据失败',
+    result: '',
+  },
+  //! 修改的分类不存在错误
+  invalidSortID: {
+    code: '100182',
+    message: '该分类不存在',
+    result: '',
+  },
+  //! 修改分类数据失败错误
+  modifySortError: {
+    code: '100183',
+    message: '修改分类数据失败',
+    result: '',
+  },
+  //! 删除分类数据失败错误
+  removeSortError: {
+    code: '100184',
+    message: '删除分类数据失败',
+    result: '',
+  },
   //! 获取分类详细数据失败错误
   findSortDataDetsError: {
     code: '10019',
@@ -181,6 +205,17 @@ module.exports = {
     code: '10029',
     message: '获取图标数据失败',
     result: '',
+  },
+  //! 修改的图标不存在错误
+  invalidIconID: {
+    code: '100291',
+    message: '图标不存在',
+    result: '',
+  },
+  //! 修改图标数据失败错误
+  modifyIconError: {
+    code: '100292',
+    message: '修改图标错误',
   },
   //! 关于我的文件数据格式错误
   validatorMeError: {

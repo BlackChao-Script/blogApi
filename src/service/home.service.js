@@ -49,6 +49,11 @@ class HomeService {
       list: res,
     }
   }
+  //! 修改图标数据
+  async modifyIconData(id, icon) {
+    const res = await Icon.update(icon, { where: { id } })
+    return res[0] > 0 ? true : false
+  }
 }
 
 module.exports = new HomeService()
