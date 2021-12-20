@@ -4,6 +4,7 @@ const {
   createSortData,
   modifySortData,
   removeSortData,
+  getAllSortListDetData,
 } = require('../service/sort.service')
 const {
   findSortDatasError,
@@ -71,7 +72,7 @@ class SortController {
       }
     } catch (err) {
       console.error('删除分类数据失败', err)
-      return ctx.app, emit('error', removeSortError, ctx)
+      return ctx.app.emit('error', removeSortError, ctx)
     }
   }
   //! 获取分类详细数据

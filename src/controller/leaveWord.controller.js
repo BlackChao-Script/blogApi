@@ -1,7 +1,11 @@
-const { createLeaveWordError } = require('../constant/err.type')
+const {
+  createLeaveWordError,
+  removeLeaveWordError,
+} = require('../constant/err.type')
 const {
   createLeaveWords,
   getLeaveWordData,
+  removeLeaveWordData,
 } = require('../service/leaveWord.service')
 class leaveWordController {
   //! 发送评论
@@ -25,6 +29,20 @@ class leaveWordController {
       code: 0,
       message: '获取成功',
       result: res,
+    }
+  }
+  //! 删除评论
+  async removeLeaveWord(ctx) {
+    try {
+      await removeLeaveWordData(ctx.params.id)
+      ctx.body = {
+        code: 0,
+        message: '删除评论成功',
+        result: '',
+      }
+    } catch (err) {
+      console.error('删除评论失败', err)
+      return ctx.app.emit('error', removeLeaveWordError, ctx)
     }
   }
 }

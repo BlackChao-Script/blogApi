@@ -241,4 +241,10 @@ module.exports = {
     message: '评论失败',
     result: '',
   },
+  //! 删除评论失败错误
+  removeLeaveWordError: {
+    code: '10041',
+    message: '删除评论失败',
+    result: '',
+  },
 }
